@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
+import kotlinx.android.synthetic.main.login_dialog.*
 import kotlinx.android.synthetic.main.login_dialog.view.*
 
 class DialogCard  constructor(context: Context)  {
@@ -14,16 +15,17 @@ class DialogCard  constructor(context: Context)  {
     init {
      acontext = context
  }
-
-    fun dialog( ): Dialog {
+    fun buildDialog(description: String): Dialog {
 
         val mDialogView = LayoutInflater.from(acontext).inflate(R.layout.login_dialog, null)
         //AlertDialogBuilder
         val mBuilder = AlertDialog.Builder(acontext)
                 .setView(mDialogView)
-                .setTitle("Login Form")
+
         //show dialog
         val  mAlertDialog = mBuilder.show()
+        mAlertDialog.dialogDescription.setText(description)
+
         //login button click of custom layout
         mDialogView.dialogLoginBtn.setOnClickListener {
             //dismiss dialog
@@ -35,8 +37,8 @@ class DialogCard  constructor(context: Context)  {
             //dismiss dialog
             mAlertDialog.dismiss()
         }
-        return mAlertDialog
 
+        return mAlertDialog
     }
 }
 

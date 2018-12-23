@@ -11,10 +11,8 @@ class PlayerManager() {
 
     fun addPlayer(playerName: String) {
         val player = Player(playerName)
-
         playerList.add(player)
     }
-
 
     fun startGame(){
         currentPlayer = playerList[playerNumber]
@@ -28,11 +26,7 @@ class PlayerManager() {
         }else{
             playerNumber++;
         }
-
-
         currentPlayer = playerList[playerNumber]
 
-
     }
-
 }

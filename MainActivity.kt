@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.login_dialog.view.*
 
 class MainActivity : AppCompatActivity(), View.OnDragListener, View.OnTouchListener {
 
-    val newFragment = DialogCard(context = this )
+    val cardDeck = CardController()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -42,7 +43,8 @@ class MainActivity : AppCompatActivity(), View.OnDragListener, View.OnTouchListe
             DragEvent.ACTION_DRAG_ENTERED -> droPlace.setBackgroundColor(Color.GREEN)
             DragEvent.ACTION_DROP -> {
                 droPlace.setBackgroundColor(Color.BLACK)
-                confirmFireMissiles()
+               // newFragment.buildDialog("Diller")
+                cardDeck.confirmFireMissiles(this)
                 return true
             }
             DragEvent.ACTION_DRAG_ENDED -> {
@@ -60,13 +62,10 @@ class MainActivity : AppCompatActivity(), View.OnDragListener, View.OnTouchListe
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         var shadow: View.DragShadowBuilder? = null
-        //ToDo ehhm switchcase you dumb piece of shit?
-        if (view === drinkCard ) {
 
+        if (view == drinkCard ) {
             shadow = View.DragShadowBuilder(drinkCard)
         }
-
-
 
         val data = ClipData.newPlainText("", "")
 
@@ -74,9 +73,6 @@ class MainActivity : AppCompatActivity(), View.OnDragListener, View.OnTouchListe
         return false
     }
 
-    fun confirmFireMissiles() {
 
-      newFragment.dialog().show()
-        }
     }
 
