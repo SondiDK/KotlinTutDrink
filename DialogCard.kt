@@ -15,7 +15,7 @@ class DialogCard  constructor(context: Context)  {
     init {
      acontext = context
  }
-    fun buildDialog(description: String): Dialog {
+    fun buildDialog(title: String?, description: String?): Dialog {
 
         val mDialogView = LayoutInflater.from(acontext).inflate(R.layout.login_dialog, null)
         //AlertDialogBuilder
@@ -24,7 +24,8 @@ class DialogCard  constructor(context: Context)  {
 
         //show dialog
         val  mAlertDialog = mBuilder.show()
-        mAlertDialog.dialogDescription.setText(description)
+        mAlertDialog.dialogName.text = title
+        mAlertDialog.dialogDescription.text = description
 
         //login button click of custom layout
         mDialogView.dialogLoginBtn.setOnClickListener {

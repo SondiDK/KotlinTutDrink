@@ -8,23 +8,18 @@ import sonderegger.dk.drinklingz.Model.PlayerManager
 
 
 fun main(args : Array<String>) {
-    println("Hello, world!")
     val pm = PlayerManager()
 
     pm.addPlayer("finn")
     pm.addPlayer("jens")
     pm.addPlayer("kim")
 
-
     for ( name in pm.playerList ){
-
         println(name)
-
     }
     println("-------start game----------")
     pm.startGame()
     println(pm.currentPlayer)
-
 
     println("-------switch turn----------")
     pm.switchTurn()
@@ -36,7 +31,6 @@ fun main(args : Array<String>) {
 
     println("-------switch turn----------")
     pm.switchTurn()
-    pm.currentPlayer?.addSips(4)
- //   println(pm.currentPlayer?.sips)
+    println(pm.currentPlayer)
 
 }

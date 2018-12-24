@@ -8,17 +8,16 @@ import sonderegger.dk.drinklingz.Model.CardDeck
 
 class CardController():  AppCompatActivity(){
 
-    val cd = CardDeck()
+   private val cd = CardDeck()
 
 
 
 
-    fun confirmFireMissiles(context: Context) {
+    fun showCard(context: Context, type: CardType) {
         val dialog = DialogCard(context)
+        val card = cd.getCard(type)
 
-       val card = cd.getCard(CardType.DRINK)
-
-        dialog.buildDialog(card.description).show()
+        dialog.buildDialog(card?.title, card?.description).show()
     }
 
 
